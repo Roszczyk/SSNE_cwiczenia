@@ -4,7 +4,7 @@ import numpy as np
 preds_csv = []
 
 preds_csv.append(pd.read_csv("bert_classifier_preds.csv", names=["ratings"]))
-preds_csv.append(pd.read_csv("absa.csv", names=["ratings"]))
+preds_csv.append(pd.read_csv("absa_preds.csv", names=["ratings"]))
 preds_csv.append(pd.read_csv("gpt_preds.csv", names=["ratings"]))
 test_data = pd.read_csv("test_data.csv", names=["opinions"])
 
@@ -44,8 +44,6 @@ for i in range(len(preds_list[1])):
 
 final_preds = np.array(final_preds)
 
-np.savetxt("predykcje.csv", final_preds, delimiter=",")
+np.savetxt("summary_preds.csv", final_preds, delimiter=",")
 
 print(f"same: {same}\nbest decide: {best_decide}\nvoting: {voting}")
-
-
